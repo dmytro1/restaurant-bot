@@ -24,6 +24,19 @@ class UserLocation {
 	private $query = '';
 	private $limit;
 	private $place_id = '';
+	private $numbers
+		= [
+			"1️⃣",
+			"2️⃣",
+			"3️⃣",
+			"4️⃣",
+			"5️⃣",
+			"6️⃣",
+			"7️⃣",
+			"8️⃣",
+			"9️⃣",
+			"🔟",
+		];
 
 	private $next_page_token = '';
 
@@ -161,8 +174,8 @@ class UserLocation {
 
 			$phone = "\r\n" . $this->get_place_info( $place_id, 'phone' );
 
-			$rating   = $place->rating ?? 'rating is not set';
-			$places[] = $i + 1 . '. <a href="' . $website . '">' . $place->name . "</a>, <strong>rating: " . $rating . '</strong> ' . $matrix_string . $phone;
+			$rating   = $place->rating ?? 'is not set';
+			$places[] = $this->numbers[ $i ] . ' <a href="' . $website . '">' . $place->name . "</a>, <strong>rating: " . $rating . '</strong> ' . $matrix_string . $phone;
 		}
 
 		return $places;
